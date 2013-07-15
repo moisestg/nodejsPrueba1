@@ -37,14 +37,22 @@ var miFuncion = function(request, response) {
   html+= "<li>Arquitectura del sistema: "+arch+"</li>";	
 
   var uptime = os.uptime();
-  html+= "<li>Tiempo de funcionamiento de la máquina: "+uptime+"</li>";
+  html+= "<li>Tiempo de funcionamiento de la máquina: "+uptime+" segundos</li>";
  
   var totalmem = os.totalmem();
   html+= "<li>Memoria total del sistema: "+totalmem+" Bytes</li>";
 
   var freemem = os.freemem();
-  html+= "<li>Memoria libre del sistema: "+freemem+" Bytes</li></ol></body></html>";
+  html+= "<li>Memoria libre del sistema: "+freemem+" Bytes</li>";
 
+  var cpus = os.cpus()
+  html+= "<li>Información de los cores de la CPU:</li><ul>";
+  for(var i=0; i<cpus.length;i++){
+
+	html+="<li>Core "+(i+1)+":<ul><li>Modelo de la CPU: "+cpus[i]["model"]+"</li></ul></li>";   
+  }
+  
+  html += "</ul></ol></body></html>";
 
 
 
