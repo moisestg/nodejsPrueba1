@@ -49,7 +49,7 @@ var miFuncion = function(request, response) {
   html+= "<li>Información de los cores de la CPU:</li><ul>";
   for(var i=0; i<cpus.length;i++){
 
-	html+="<li>Core "+(i+1)+":<ul><li>Modelo de la CPU: "+cpus[i]["model"]+"</li></ul></li>";   
+	html+="<li>Core "+(i+1)+":<ul><li>Modelo: "+cpus[i]["model"]+"</li><li>Velocidad: "+cpus[i]["speed"]+"</li></ul></li>";   
   }
   
   html += "</ul></ol></body></html>";
