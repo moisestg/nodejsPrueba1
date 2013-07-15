@@ -12,9 +12,9 @@ var miFuncion = function(request, response) {
 //  var cad = fs.readFileSync('index.html','utf8');
 
 //A continuación recuperamos la info que nos proporciona la api "os" y la incorporamos a un html
-	var resultadoCPU = os.cpus();
+	var tmpdir = os.tmpdir();
   var html = "<html><head><title>Ejemplo NodeJS y Heroku</title><meta charset='utf-8'></head><body><h3>Información de las máquinas del servidor de Heroku</h3>";
-  html+= resultadoCPU+"</body></html>";
+  html+= tmpdir+"</body></html>";
 
   
   response.send(html);
