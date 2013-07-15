@@ -10,7 +10,7 @@ var miFuncion = function(request, response) {
 
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send("hola mundo");
+  response.send(os.cpus());
 };
 
 app.get('/', miFuncion);
