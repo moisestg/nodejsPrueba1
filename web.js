@@ -12,8 +12,8 @@ var miFuncion = function(request, response) {
 //  var cad = fs.readFileSync('index.html','utf8');
 
   var resultadoCPU = os.cpus();
-  response.send(resultadoCPU[0]);
-  console.log(resultadoCPU[0]);
+  response.send("<html><head></head><body>Hola</body></html>");
+  
 };
 
 app.get('/', miFuncion);
