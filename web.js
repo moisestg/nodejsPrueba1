@@ -52,18 +52,24 @@ var miFuncion = function(request, response) {
 	html+="<li>Core "+(i+1)+":<ul><li>Modelo: "+cpus[i]["model"]+"</li><li>Velocidad: "+cpus[i]["speed"]+" MHz</li><li>Tiempos:<ul><li>User: "+cpus[i]["times"]["user"]+" ms</li><li>Nice: "+cpus[i]["times"]["nice"]+" ms</li><li>Sys: "+cpus[i]["times"]["sys"]+" ms</li><li>Idle: "+cpus[i]["times"]["idle"]+" ms</li><li>IRQ: "+cpus[i]["times"]["irq"]+" ms</li></ul></li></ul></li>";   
   
 }
-  html += "</ul></ol></body></html>";
+  html += "</ul>";
 
-/*
+
   var network = os.networkInterfaces();
   html+= "<li>Información de las interfaces de red:</li><ul>";
-  for(var i=0; i<network.length;i++){
+
+  for(var interf in network){
+
+for(var i=0; i<network[interf].length;i++){
 	
-	html+="<li>Interfaz de red "+(i+1)+":<ul><li>Dirección: "+network[i]["address"]+"</li><li>Familia: "+network[i]["family"]+"</li><li>¿Interna?: "+network[i]["internal"]+"</li></ul></li>";   
+	html+="<li>Interfaz de red "+(i+1)+" de "+interf+":<ul><li>Dirección: "+network[hola][i]["address"]+"</li><li>Familia: "+network[hola][i]["family"]+"</li><li>¿Interna?: "+network[hola][i]["internal"]+"</li></ul></li>";   
   
 }
+
+}
+  
   html += "</ul></ol></body></html>";
-*/
+
 
   response.send(html);
   
