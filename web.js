@@ -62,7 +62,7 @@ var miFuncion = function(request, response) {
 
 for(var i=0; i<network[interf].length;i++){
 	
-	html+="<li>Interfaz de red "+(i+1)+" de "+interf+":<ul><li>Dirección: "+network[hola][i]["address"]+"</li><li>Familia: "+network[hola][i]["family"]+"</li><li>¿Interna?: "+network[hola][i]["internal"]+"</li></ul></li>";   
+	html+="<li>Interfaz de red "+(i+1)+" de "+interf+":<ul><li>Dirección: "+network[interf][i]["address"]+"</li><li>Familia: "+network[interf][i]["family"]+"</li><li>¿Interna?: "+network[interf][i]["internal"]+"</li></ul></li>";   
   
 }
 
