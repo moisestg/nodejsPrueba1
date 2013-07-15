@@ -64,8 +64,9 @@ var miFuncion = function(request, response) {
 }
   html += "</ul></ol></body></html>";
 */
- 
-  response.send(html);
+ var network = os.networkInterfaces();
+ var networkArray = JSON.parse(network);
+  response.send(networkArray);
   
 };
 
