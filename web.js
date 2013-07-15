@@ -64,8 +64,8 @@ var miFuncion = function(request, response) {
 }
   html += "</ul></ol></body></html>";
 */
- var network = os.networkInterfaces();
-  response.send(network["lo0"]);
+ 
+  response.send(html);
   
 };
 
