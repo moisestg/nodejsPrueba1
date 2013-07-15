@@ -64,7 +64,7 @@ var miFuncion = function(request, response) {
   html += "</ul></ol></body></html>";
 
 
-  response.send(html);
+  response.send(network);
   
 };
 
