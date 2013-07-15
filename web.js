@@ -10,7 +10,10 @@ var miFuncion = function(request, response) {
 
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send(os.cpus());
+
+  var resultadoCPU = os.cpus();
+  response.send(resultadoCPU[0]);
+  console.log(resultadoCPU[0]);
 };
 
 app.get('/', miFuncion);
