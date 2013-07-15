@@ -13,7 +13,7 @@ var miFuncion = function(request, response) {
 
 //A continuación recuperamos la info que nos proporciona la api "os" y la incorporamos a un html
 	var resultadoCPU = os.cpus();
-  var html = "<html><head><title>Ejemplo NodeJS y Heroku</title><meta name="tipo_contenido" 		  content="text/html;" http-equiv="content-type" charset="utf-8"></head><body><h3>Información de las máquinas del servidor de Heroku</h3></body></html>";
+  var html = "<html><head><title>Ejemplo NodeJS y Heroku</title><meta charset='utf-8'></head><body><h3>Información de las máquinas del servidor de Heroku</h3></body></html>";
  
 
   
