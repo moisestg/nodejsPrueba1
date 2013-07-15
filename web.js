@@ -52,8 +52,9 @@ var miFuncion = function(request, response) {
 	html+="<li>Core "+(i+1)+":<ul><li>Modelo: "+cpus[i]["model"]+"</li><li>Velocidad: "+cpus[i]["speed"]+" MHz</li><li>Tiempos:<ul><li>User: "+cpus[i]["times"]["user"]+" ms</li><li>Nice: "+cpus[i]["times"]["nice"]+" ms</li><li>Sys: "+cpus[i]["times"]["sys"]+" ms</li><li>Idle: "+cpus[i]["times"]["idle"]+" ms</li><li>IRQ: "+cpus[i]["times"]["irq"]+" ms</li></ul></li></ul></li>";   
   
 }
-  html += "</ul>";
+  html += "</ul></ol></body></html>";
 
+/*
   var network = os.networkInterfaces();
   html+= "<li>Información de las interfaces de red:</li><ul>";
   for(var i=0; i<network.length;i++){
@@ -62,9 +63,9 @@ var miFuncion = function(request, response) {
   
 }
   html += "</ul></ol></body></html>";
+*/
 
-
-  response.send(network);
+  response.send(html);
   
 };
 
