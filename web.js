@@ -22,7 +22,23 @@ var miFuncion = function(request, response) {
   html+= "<li>CPU trabaja en Big Endian (BE) o Little Endian (LE): "+endianness+"</li>";
   
   var hostname = os.hostname();
-  html+= "<li>Hostname del SO: "+hostname+"</li></ol></body></html>";
+  html+= "<li>Hostname del SO: "+hostname+"</li>";
+
+  var type = os.type();
+  html+= "<li>Nombre del SO de la máquina: "+type+"</li>";
+
+  var platform = os.platform();
+  html+= "<li>Plataforma del SO de la máquina: "+platform+"</li>";
+
+  var release = os.release();
+  html+= "<li>Versión del SO de la máquina: "+arch+"</li>";
+
+  var arch = os.arch();
+  html+= "<li>Arquitectura del sistema: "+arch+"</li></ol></body></html>";	
+
+
+
+
 
 
   response.send(html);
