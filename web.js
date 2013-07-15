@@ -13,7 +13,7 @@ var miFuncion = function(request, response) {
 
 //A continuación recuperamos la info que nos proporciona la api "os" y la incorporamos a un html
 	
-  var html = "<!DOCTYPE html><html><head><title>Ejemplo NodeJS y Heroku</title><meta charset='utf-8'></head><body><h3>Información de las máquinas del servidor de Heroku</h3><ol>";
+  var html = "<!DOCTYPE html><html><head><title>Ejemplo NodeJS y Heroku</title><meta charset='utf-8'></head><body><h3>Información de la máquina del servidor de Heroku</h3><ol>";
   
   var tmpdir = os.tmpdir();
   html+= "<li>Directorio por defecto para archivos temporales: "+tmpdir+"</li>";
@@ -59,13 +59,11 @@ var miFuncion = function(request, response) {
   html+= "<li>Información de las interfaces de red:</li><ul>";
 
   for(var interf in network){
-
-for(var i=0; i<network[interf].length;i++){
+	for(var i=0; i<network[interf].length;i++){
 	
 	html+="<li>Interfaz de red "+(i+1)+" de "+interf+":<ul><li>Dirección: "+network[interf][i]["address"]+"</li><li>Familia: "+network[interf][i]["family"]+"</li><li>¿Interna?: "+network[interf][i]["internal"]+"</li></ul></li>";   
   
-}
-
+	}
 }
   
   html += "</ul></ol></body></html>";
