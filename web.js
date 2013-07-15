@@ -65,7 +65,9 @@ var miFuncion = function(request, response) {
   html += "</ul></ol></body></html>";
 */
 
-  response.send(html);
+var network = os.networkInterfaces();
+
+  response.send(network.en1);
   
 };
 
