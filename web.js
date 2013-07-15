@@ -34,9 +34,16 @@ var miFuncion = function(request, response) {
   html+= "<li>Versión del SO de la máquina: "+arch+"</li>";
 
   var arch = os.arch();
-  html+= "<li>Arquitectura del sistema: "+arch+"</li></ol></body></html>";	
+  html+= "<li>Arquitectura del sistema: "+arch+"</li>";	
 
+  var uptime = os.uptime();
+  html+= "<li>Tiempo de funcionamiento de la máquina: "+uptime+"</li>";
+ 
+  var totalmem = os.totalmem();
+  html+= "<li>Memoria total del sistema: "+totalmem+" Bytes</li>";
 
+  var freemem = os.freemem();
+  html+= "<li>Memoria libre del sistema: "+freemem+" Bytes</li></ol></body></html>";
 
 
 
