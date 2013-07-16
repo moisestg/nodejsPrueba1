@@ -36,7 +36,7 @@ var miFuncion = function(request, response) {
   
 
   console.log("hemos recibido algo");
-  var cad = fs.readFileSync('prueba.xml')
+  var cad = fs.readFileSync('prueba.xml','utf-8');
 
   response.send(cad);
   
