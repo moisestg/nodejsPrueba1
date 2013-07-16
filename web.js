@@ -73,12 +73,8 @@ var miFuncion = function(request, response) {
   
 };
 
-
-var ejecuta = function(){
-	setInterval(miFuncion,5000);
-};
-
-app.get('/', ejecuta);
+setInterval("miFuncion()",5000);
+//app.get('/', miFuncion);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
