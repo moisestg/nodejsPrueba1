@@ -14,7 +14,7 @@ var xmlDinamico = function(){
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
-	fs.appendFileSync('prueba.xml',"<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>+"freemem"+</freemem></medida>");
+	fs.appendFileSync('prueba.xml',"<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida>");
 }      
   
 
