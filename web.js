@@ -64,10 +64,10 @@ var clock = function(){
 	}
 }
   
-  html += "</ul></ol></body></html>";
+  html += "</ul></ol><br><br><br></body></html>";
 }
 
-html+="</ol></body></html>"
+
 
 
 
