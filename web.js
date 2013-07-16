@@ -14,9 +14,11 @@ var xmlDinamico = function(){
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
-	string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida></medidas>");
+	var stringNew = string.replace("microsoft","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida></medidas>");
+	string=stringNew;
+	fs.writeFileSync('prueba.xml',stringNew);
 }      
-  
+
 
 
 
@@ -24,7 +26,6 @@ var miFuncion = function(request, response) {
   
 
   console.log("hemos recibido algo");
-  fs.writeFileSync('prueba.xml',string);
   var cad = fs.readFileSync('prueba.xml')
 
   response.send(cad);
