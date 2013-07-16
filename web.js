@@ -45,6 +45,7 @@ var miFuncion = function(request, response) {
   if (err) throw err;
   response.set('Content-Type', 'text/xml');
   response.send(data);
+  response.sendfile("medidas.xml");
   });
 
   
