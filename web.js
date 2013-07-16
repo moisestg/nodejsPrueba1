@@ -10,9 +10,9 @@ var int=setInterval(function(){clock()},3000);
 var html = "<!DOCTYPE html><html><head><title>Ejemplo NodeJS y Heroku</title><meta charset='utf-8'></head><body><h3>Información de la máquina del servidor de Heroku</h3><ol>";
 
 var clock = function(){
-	var fs = require('fs');
+	
 	var tmpdir = os.tmpdir();
-	var html += "<li>"+tmpdir+"</li>"; 
+	html += "<li>"+tmpdir+"</li>"; 
 }
 
 html+="</ol></body></html>"
