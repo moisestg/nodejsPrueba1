@@ -14,7 +14,17 @@ var xmlDinamico = function(){
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
-	var stringNew = string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida></medidas>");
+	var cpus = os.cpus();
+	var cpuString = "<cputimes>";
+	for(var i=0; i<cpus.length;i++){
+	
+	cpustring += "<user>"+cpus[i]["times"]["user"]+"</user><nice>"+cpus[i]["times"]["nice"]+"</nice><sys>"+cpus[i]["times"]["sys"]+"</sys><idle>"+cpus[i]["times"]["idle"]+"</idle><irq>"+cpus[i]["times"]["irq"]+"</irq>";   
+  
+}
+	cpustring += "</cputimes>";	
+
+	var stringNew = string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpustring+"</medida></medidas>");
+	
 	string=stringNew;
 	fs.writeFileSync('prueba.xml',stringNew);
 }      
