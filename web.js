@@ -6,13 +6,16 @@ console.log("iniciando la aplicacion");
 var os = require('os');
 var fs = require('fs');
 
-//var int  =setInterval(function(){xmlDinamico()},3000);
+var int  =setInterval(function(){xmlDinamico()},3000);
 
-fs.appendFileSync('prueba.xml',"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><autor><nombre>Moisés</nombre></autor>");
+fs.appendFileSync('prueba.xml',"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><medidas>");
 
-//var xmlDinamico = function(){
-	
-//}      
+var xmlDinamico = function(){
+	var uptime = os.uptime();
+	var totalmem = os.totalmem();
+	var freemem = os.freemem();
+	fs.appendFileSync('prueba.xml',"<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>+"freemem"+</freemem></medida>");
+}      
   
 
 
