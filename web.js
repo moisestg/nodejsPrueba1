@@ -45,9 +45,12 @@ var miFuncion = function(request, response) {
   if (err) throw err;
   response.set('Content-Type', 'text/xml');
   response.send(data);
-  response.sendfile("medidas.xml");
   });
-
+  
+  fs.readFile('medidas.xml', function (err, data) {
+  if (err) throw err;
+  response.send(data);
+  });
   
   
 };
