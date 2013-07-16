@@ -31,7 +31,7 @@ var miFuncion = function(request, response) {
   html+= "<li>Plataforma del SO de la máquina: "+platform+"</li>";
 
   var release = os.release();
-  html+= "<li>Versión del SO de la máquina: "+arch+"</li>";
+  html+= "<li>Versión del SO de la máquina: "+release+"</li>";
 
   var arch = os.arch();
   html+= "<li>Arquitectura del sistema: "+arch+"</li>";	
