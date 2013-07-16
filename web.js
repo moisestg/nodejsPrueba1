@@ -73,7 +73,9 @@ var miFuncion = function(request, response) {
   
 };
 
-app.get('/', miFuncion);
+window.setInterval(miFuncion,5000);
+
+// app.get('/', miFuncion);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
