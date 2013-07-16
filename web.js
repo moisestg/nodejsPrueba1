@@ -73,7 +73,12 @@ var miFuncion = function(request, response) {
   
 };
 
-setInterval("miFuncion(request, response)",5000);
+var hola = function(){
+
+alert("hola");
+};
+
+setInterval("hola()",5000);
 //app.get('/', miFuncion);
 
 var port = process.env.PORT || 5000;
