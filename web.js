@@ -7,11 +7,11 @@ var os = require('os');
 var fs = require('fs');
 
 var int=setInterval(function(){clock()},3000);
-fs.writeFile('prueba.html',"");
+fs.writeFileSync('./prueba.html',"");
 
 var clock = function(){
   var pagina = "<html><head></head><body>hoola pío</body></html>";	
-  fs.appendFile('prueba.html',pagina);	
+  fs.appendFileSync('./prueba.html',pagina);	
      
 }
   
@@ -25,7 +25,7 @@ var clock = function(){
 var miFuncion = function(request, response) {
 
   console.log("hemos recibido algo");
-  var cad = fs.readFile('prueba.html','utf8')
+  var cad = fs.readFileSync('./prueba.html','utf8')
 
   response.send(cad);
   
