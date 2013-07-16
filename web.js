@@ -41,8 +41,9 @@ var miFuncion = function(request, response) {
 
   //var cad = fs.readFileSync('prueba.xml');
 
-  fs.readFile('medidas.xml','utf8', function (err, data) {
+  fs.readFile('medidas.xml', function (err, data) {
   if (err) throw err;
+  res.set('Content-Type', 'text/xml');
   response.send(data);
   });
 
