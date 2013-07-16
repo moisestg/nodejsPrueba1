@@ -6,7 +6,7 @@ console.log("iniciando la aplicacion");
 var os = require('os');
 var fs = require('fs');
 
-var int  =setInterval(function(){xmlDinamico()},3000);
+var int  =setInterval(function(){xmlDinamico()},300000);
 
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
 
