@@ -8,7 +8,7 @@ var fs = require('fs');
 
 var int  =setInterval(function(){xmlDinamico()},3000);
 
-var string = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><medidas></medidas>"
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
 
 var xmlDinamico = function(){
 	var uptime = os.uptime();
@@ -41,7 +41,7 @@ var miFuncion = function(request, response) {
 
   //var cad = fs.readFileSync('prueba.xml');
 
-  fs.readFile('medidas.xml','UTF-8', function (err, data) {
+  fs.readFile('medidas.xml', function (err, data) {
   if (err) throw err;
   response.send(data);
   });
