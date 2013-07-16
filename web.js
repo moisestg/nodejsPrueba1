@@ -26,7 +26,7 @@ var xmlDinamico = function(){
 	var stringNew = string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
-	fs.writeFileSync('prueba.xml',stringNew);
+	fs.writeFileSync('medidas.xml',stringNew);
 }      
 
 
@@ -39,9 +39,14 @@ var miFuncion = function(request, response) {
 
   //Si quito 2º parámetro (encoding) al entrar en la web me deja descargar el xml perfect y si pongo  utf-8 no sale el texto como xml
 
-  var cad = fs.readFileSync('prueba.xml');
+  //var cad = fs.readFileSync('prueba.xml');
 
-  response.send(cad);
+  fs.readFile('medidas.xml','utf8', function (err, data) {
+  if (err) throw err;
+  response.send(data);
+  });
+
+  
   
 };
 
