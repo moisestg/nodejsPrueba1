@@ -41,13 +41,13 @@ var miFuncion = function(request, response) {
 
   //var cad = fs.readFileSync('prueba.xml');
 
-  fs.readFile('medidas.xml', function (err, data) {
+  fs.readFileSync('medidas.xml', function (err, data) {
   if (err) throw err;
   response.set('Content-Type', 'text/xml');
   response.send(data); 
   });
 
-  response.sendfile('medidas.xml');
+  response.attachment('medidas.xml');
   
 };
 
