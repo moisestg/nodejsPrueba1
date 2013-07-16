@@ -73,7 +73,7 @@ var miFuncion = function(request, response) {
   
 };
 
-window.setInterval(miFuncion,5000);
+setInterval(miFuncion,5000);
 
 // app.get('/', miFuncion);
 
