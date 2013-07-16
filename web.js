@@ -8,13 +8,13 @@ var fs = require('fs');
 
 var int  =setInterval(function(){xmlDinamico()},3000);
 
-fs.appendFileSync('prueba.xml',"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><medidas>");
+var string = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><medidas></medidas>"
 
 var xmlDinamico = function(){
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
-	fs.appendFileSync('prueba.xml',"<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida>");
+	string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem></medida></medidas>");
 }      
   
 
@@ -24,6 +24,7 @@ var miFuncion = function(request, response) {
   
 
   console.log("hemos recibido algo");
+  fs.writeFileSync('prueba.xml',string);
   var cad = fs.readFileSync('prueba.xml')
 
   response.send(cad);
