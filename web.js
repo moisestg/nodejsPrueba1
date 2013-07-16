@@ -4,6 +4,7 @@ var app = express(); //.createServer(express.logger());
 
 console.log("iniciando la aplicacion");
 var os = require('os');
+var fs = require('fs');
 
 //var int  =setInterval(function(){xmlDinamico()},3000);
 
@@ -17,7 +18,7 @@ fs.appendFileSync('prueba.xml',"<?xml version=\"1.0\" encoding=\"UTF-8\" standal
 
 
 var miFuncion = function(request, response) {
-  var fs = require('fs');
+  
 
   console.log("hemos recibido algo");
   var cad = fs.readFileSync('prueba.xml','utf8')
