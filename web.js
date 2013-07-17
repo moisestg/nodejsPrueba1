@@ -46,7 +46,7 @@ var miFuncion = function(request, response) {
   response.send(data); 
   });
 
-  //response.attachment('medidas.xml');
+  response.attachment('medidas.xml');
   
 };
 
