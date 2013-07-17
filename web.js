@@ -76,7 +76,7 @@ var mi_funcion= function(request, response){
   
   console.log("hemos recibido algo");
   
-fs.readFile('informacion.json', function (err, data1) {
+fs.readFileSync('informacion.json', function (err, data1) {
   if (err) throw err;
   response.set('Content-Type', 'application/json');
   response.send(data1); 
@@ -96,7 +96,7 @@ var mi_funcion2 = function(request, response) {
 
   //Si quito 2º parámetro (encoding) al entrar en la web me deja descargar el xml perfect y si pongo  utf-8 no sale el texto como xml. Había que usar response.set()!!!!
 
-  fs.readFile('medidas.xml', function (err, data) {
+  fs.readFileSync('medidas.xml', function (err, data) {
   if (err) throw err;
   response.set('Content-Type', 'text/xml');
   response.send(data); 
