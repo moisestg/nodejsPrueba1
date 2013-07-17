@@ -6,6 +6,57 @@ console.log("iniciando la aplicacion");
 var os = require('os');
 var fs = require('fs');
 
+//Empieza código para json~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var cpu_info2=os.cpus();
+var int_network2;
+
+var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
+
+for(var i=0;i<cpu_info2.length;i++){
+if(i===cpu_info2.length-1){
+antjson+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"];
+}else{   
+antjson+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
+}
+};
+antjson+="}}]}"
+var json="";
+console.log("iniciando la aplicacion");
+
+var int2=setInterval(function(){jsonvar()},3000);
+function jsonvar(){
+ int_network2=os.networkInterfaces();
+   json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
+ 
+   for(var i=0;i<cpu_info2.length;i++){
+if(i===cpu_info2.length-1){   
+json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+"}}";
+}else{   
+json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
+}
+
+};
+	antjson=antjson.replace("]}",json+"]}");
+
+fs.writeFileSync('informacion.json',antjson);
+}
+
+var mi_funcion= function(request, response){
+  var fs = require('fs');
+  
+  console.log("hemos recibido algo");
+
+  var cad = fs.readFileSync('informacion.json','UTF-8');
+  response.set('Content-Type','application/json');
+  //response.attachment('informacion.json');
+  response.send(cad);
+
+ 
+ 
+};
+//Acaba código para json~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Empieza código para xml~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var int  =setInterval(function(){xmlDinamico()},3000);
 
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
@@ -49,8 +100,11 @@ var miFuncion = function(request, response) {
   //response.attachment('medidas.xml');
   
 };
+//Acaba código para xml~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 app.get('/xml', miFuncion);
+app.get('/json', mi_funcion);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
