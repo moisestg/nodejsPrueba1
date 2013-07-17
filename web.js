@@ -16,6 +16,7 @@ var xmlDinamico = function(){
 	var freemem = os.freemem();
 	var cpus = os.cpus();
 	var cpuString = "<cputimes>";
+	
 	for(var i=0; i<cpus.length;i++){
 	
 	cpuString += "<user>"+cpus[i]["times"]["user"]+"</user><nice>"+cpus[i]["times"]["nice"]+"</nice><sys>"+cpus[i]["times"]["sys"]+"</sys><idle>"+cpus[i]["times"]["idle"]+"</idle><irq>"+cpus[i]["times"]["irq"]+"</irq>";   
