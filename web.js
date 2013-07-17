@@ -38,7 +38,7 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},1000);
+var int=setInterval(function(){json_xml_var()},3000);
 function json_xml_var(){
 	var uptime2 = os.uptime();
 	var totalmem2 = os.totalmem();
