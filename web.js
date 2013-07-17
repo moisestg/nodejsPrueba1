@@ -27,7 +27,7 @@ var cpuString2 = "<cputimes>";
 cpuString2 += "</cputimes>";
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"+h+":"+m+":"+s+"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
-var antjson="{\"medidas\":[{\"time\":"+h+":"+m+":"+s+",\"freememory\":"+freemem+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
 for(var i=0;i<cpus.length;i++){
 if(i===cpus.length-1){
@@ -52,7 +52,7 @@ function json_xml_var(){
 	var s = d.getSeconds();
 
  int_network2=os.networkInterfaces();
-   json+=",{\"time\":"+h+":"+m+":"+s+",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem2+",\"uptime\":"+uptime2+",\"cputimes\":{";
+   json+=",{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem2+",\"uptime\":"+uptime2+",\"cputimes\":{";
  
    for(var i=0;i<cpus2.length;i++){
 if(i===cpus2.length-1){   
