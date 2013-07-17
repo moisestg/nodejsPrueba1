@@ -89,7 +89,7 @@ var mi_funcion= function(request, response){
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
 
-if(request.query.i[0]===""){
+if(request.query.i===undefined){
 	response.set('Content-Type', 'application/json');
   	response.send(data1);
 }else{
