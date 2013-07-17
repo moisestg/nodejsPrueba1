@@ -50,7 +50,7 @@ var miFuncion = function(request, response) {
   
 };
 
-app.get('/', miFuncion);
+app.get('/xml', miFuncion);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
