@@ -4,9 +4,10 @@ var app = express(); //.createServer(express.logger());
 var fs = require('fs');
 
 var os = require('os');
-
-
-
+var d = new Date(); 
+var hora = d.getHours();
+var minutos = d.getMinutes();
+var segundos = d.getSeconds();
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
@@ -23,7 +24,7 @@ var cpuString2 = "<cputimes>";
   
 }
 cpuString2 += "</cputimes>";
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"+hora+":"+minutos+":"+segundos"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
@@ -64,7 +65,7 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 }
 	cpuString += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><time>"+hora+":"+minutos+":"+segundos"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
