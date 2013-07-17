@@ -41,7 +41,7 @@ function jsonvar(){
 	var stringNew = string.replace("</medidas>","<medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
-	fs.writeFileSync('medidas.xml',stringNew);
+	
 
 
 
@@ -55,11 +55,13 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
 }
 	
+};
+	
 	antjson=antjson.replace("]}",json+"]}");
 	fs.writeFileSync('informacion.json',antjson);
+	fs.writeFileSync('medidas.xml',stringNew);
 
 }
-};
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
