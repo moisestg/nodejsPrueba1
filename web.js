@@ -6,7 +6,9 @@ var fs = require('fs');
 var os = require('os');
 
 	var d = new Date();
-
+	var h = d.getHours();
+	var m = d.getMinutes();
+	var s = d.getSeconds();
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
@@ -23,7 +25,7 @@ var cpuString2 = "<cputimes>";
   
 }
 cpuString2 += "</cputimes>";
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()+"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"+h+":"+m+":"+s+"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
@@ -38,14 +40,16 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},3000);
+var int=setInterval(function(){json_xml_var()},1000);
 function json_xml_var(){
 	var uptime2 = os.uptime();
 	var totalmem2 = os.totalmem();
 	var freemem2 = os.freemem();
 	var cpus2 = os.cpus();
 	var d = new Date();
-
+	var h = d.getHours();
+	var m = d.getMinutes();
+	var s = d.getSeconds();
 
  int_network2=os.networkInterfaces();
    json+=",{\"freemem2ory\":"+freemem2+",\"totalmem2ory\":"+totalmem2+",\"uptime2\":"+uptime2+",\"cputimes\":{";
@@ -71,7 +75,7 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 }
 	cpus2tring += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><time>"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()+"</time><uptime>"+uptime2+"</uptime><totalmem>"+totalmem2+"</totalmem><freemem>"+freemem2+"</freemem>"+cpus2tring+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><time>"+h+":"+m+":"+s+"</time><uptime>"+uptime2+"</uptime><totalmem>"+totalmem2+"</totalmem><freemem>"+freemem2+"</freemem>"+cpus2tring+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
