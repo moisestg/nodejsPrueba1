@@ -88,8 +88,10 @@ var mi_funcion= function(request, response){
   console.log("hemos recibido algo");
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
+  var jsonParsed = JSON.parse(data1);
+
   response.set('Content-Type', 'application/json');
-  response.send(data1); 
+  response.send(jsonParsed["medidas"][0]); 
  
 
   //response.attachment('informacion.json');
