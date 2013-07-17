@@ -15,7 +15,7 @@ console.log("iniciando la aplicacion");
 
 var int2=setInterval(function(){jsonvar()},5000);
 function jsonvar(){
-	var uptime = os.uptime();
+	var uptime = os.uptime()+3;
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
 	var cpus = os.cpus();
