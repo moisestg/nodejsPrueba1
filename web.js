@@ -23,7 +23,7 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int2=setInterval(function(){jsonvar()},3000);
+var int2=setInterval(function(){jsonvar()},5000);
 function jsonvar(){
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
