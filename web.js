@@ -83,15 +83,15 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 };
 
 var mi_funcion= function(request, response){
-  var fs = require('fs');
+  
   
   console.log("hemos recibido algo");
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
-  var jsonParsed = JSON.parse(data1);
+  var parseado = JSON.parse(data1);
 
   response.set('Content-Type', 'application/json');
-  response.send(jsonParsed['medidas'][1]); 
+  response.send(parseado['medidas'][1]); 
  
 
   //response.attachment('informacion.json');
