@@ -91,7 +91,7 @@ var mi_funcion= function(request, response){
   var jsonparsed = JSON.parse(data1);
 
   response.set('Content-Type', 'application/json');
-  response.send(jsonparsed['medidas'][1]); 
+  response.send(jsonparsed['medidas'][request.query.i]); 
  
 
   //response.attachment('informacion.json');
