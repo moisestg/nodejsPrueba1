@@ -44,7 +44,7 @@ function json_xml_var(){
 	var totalmem2 = os.totalmem();
 	var freemem2 = os.freemem();
 	var cpus2 = os.cpus();
-
+	var d = new Date();
 
 
  int_network2=os.networkInterfaces();
