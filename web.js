@@ -89,16 +89,20 @@ var mi_funcion= function(request, response){
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
 
+if((request.query.i)===""){
+	response.set('Content-Type', 'application/json');
+  	response.send(data1);
+}else{
 
   var jsonparsed = JSON.parse(data1);
 
-  //response.set('Content-Type', 'application/json');
-  response.send(request.query.i.length); 
+  response.set('Content-Type', 'application/json');
+  response.send(jsonparsed['medidas'][request.query.i]); 
  
 
   //response.attachment('informacion.json');
  
-
+}
  
  
 };
