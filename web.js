@@ -27,7 +27,7 @@ var cpuString2 = "<cputimes>";
 cpuString2 += "</cputimes>";
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"+h+":"+m+":"+s+"</time><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
-var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"Time\":"+h+":"+m":"+s+",\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
 for(var i=0;i<cpus.length;i++){
 if(i===cpus.length-1){
@@ -40,7 +40,7 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},1000);
+var int=setInterval(function(){json_xml_var()},3000);
 function json_xml_var(){
 	var uptime2 = os.uptime();
 	var totalmem2 = os.totalmem();
@@ -52,7 +52,7 @@ function json_xml_var(){
 	var s = d.getSeconds();
 
  int_network2=os.networkInterfaces();
-   json+=",{\"freemem2ory\":"+freemem2+",\"totalmem2ory\":"+totalmem2+",\"uptime2\":"+uptime2+",\"cputimes\":{";
+   json+=",{\"Time\":"+h+":"+m":"+s+",\"freemem2ory\":"+freemem2+",\"totalmem2ory\":"+totalmem2+",\"uptime2\":"+uptime2+",\"cputimes\":{";
  
    for(var i=0;i<cpus2.length;i++){
 if(i===cpus2.length-1){   
