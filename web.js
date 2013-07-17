@@ -54,12 +54,12 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 }else{   
 json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
 }
-
-};
+	
 	antjson=antjson.replace("]}",json+"]}");
+	fs.writeFileSync('informacion.json',antjson);
 
-fs.writeFileSync('informacion.json',antjson);
 }
+};
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
