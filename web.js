@@ -136,7 +136,7 @@ var tiempoNum = parseInt(tiempoString);
 //	}
 //}	
 
-  response.set('Content-Type', 'application/json');
+  //response.set('Content-Type', 'application/json');
   response.send(tiempoNum); 
  
 
