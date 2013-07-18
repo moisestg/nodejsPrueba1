@@ -134,6 +134,10 @@ for(var i=0; i<jsonparsed['medidas'].length;i++){
 	}
 }	
 
+  if(arraySeleccionados.length===0){
+	response.send("No se han encontrado coincidencias para tu búsqueda.  //  Formato de hora: 08:10:05 --> 081005");
+}
+
   response.set('Content-Type', 'application/json');
   response.send(arraySeleccionados); 
  
