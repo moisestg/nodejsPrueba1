@@ -135,10 +135,10 @@ for(var i=0; i<jsonparsed['medidas'].length;i++){
 }	
 
   response.set('Content-Type', 'application/json');
-  response.send(arraySeleccionados); 
+  //response.send(arraySeleccionados); 
  
 
-  //response.attachment('informacion.json');
+  response.attachment('arraySeleccionados');
  
 }
  
