@@ -3,12 +3,28 @@ var express = require('express');
 var app = express(); //.createServer(express.logger());
 var fs = require('fs');
 
+
+
+
 var os = require('os');
 
 	var d = new Date();
 	var h = d.getHours();
 	var m = d.getMinutes();
 	var s = d.getSeconds();
+	
+	if(h<10){
+	h+="0";
+	}
+
+	if(m<10){
+	m+="0";
+	}
+	
+	if(s<10){
+	s+="0";
+	}
+
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
@@ -50,6 +66,18 @@ function json_xml_var(){
 	var h = d.getHours();
 	var m = d.getMinutes();
 	var s = d.getSeconds();
+
+	if(h<10){
+	h+="0";
+	}
+
+	if(m<10){
+	m+="0";
+	}
+	
+	if(s<10){
+	s+="0";
+	}
 
  int_network2=os.networkInterfaces();
    json+=",{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem2+",\"uptime\":"+uptime2+",\"cputimes\":{";
@@ -97,7 +125,7 @@ if(request.query.ind===undefined){
   var jsonparsed = JSON.parse(data1);
 
   response.set('Content-Type', 'application/json');
-  response.send("{"+JSON.stringify(jsonparsed['medidas'][request.query.ind])+","+JSON.stringify(jsonparsed['medidas'][request.query.ind+1])+"}"); 
+  response.send(); 
  
 
   //response.attachment('informacion.json');
