@@ -14,15 +14,15 @@ var os = require('os');
 	var s = d.getSeconds();
 	
 	if(h<10){
-	h+="0";
+	h= h+"0";
 	}
 
 	if(m<10){
-	m+="0";
+	m=m+"0";
 	}
 	
 	if(s<10){
-	s+="0";
+	s=s+"0";
 	}
 
 	var uptime = os.uptime();
@@ -68,15 +68,15 @@ function json_xml_var(){
 	var s = d.getSeconds();
 
 	if(h<10){
-	h+="0";
+	h= h+"0";
 	}
 
 	if(m<10){
-	m+="0";
+	m=m+"0";
 	}
 	
 	if(s<10){
-	s+="0";
+	s=s+"0";
 	}
 
  int_network2=os.networkInterfaces();
