@@ -126,7 +126,7 @@ if(request.query.desde===undefined || request.query.hasta===undefined){
   var arraySeleccionados = [];
   var desde = request.query.desde;
   var hasta = request.query.hasta;
-	var tiempoString = jsonparsed['medidas'][0]['time'].substring(0,1)+jsonparsed['medidas'][0]['time'].substring(3,5)+jsonparsed['medidas'][0]['time'].substring(6,8);
+	var tiempoString = jsonparsed['medidas'][0]['time'].substring(0,2)+jsonparsed['medidas'][0]['time'].substring(3,5)+jsonparsed['medidas'][0]['time'].substring(6,8);
 //for(var i=0; i<jsonparsed['medidas'].length;i++){
 //	var tiempoString = jsonparsed['medidas'][i]['time'].substring(0,1)+jsonparsed['medidas'][i]['time'].substring(3,5)+jsonparsed['medidas'][i]['time'].substring(6,8);
 //	var tiempoNum = parseInt(tiempoString,10);
