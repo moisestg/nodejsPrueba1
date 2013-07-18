@@ -97,7 +97,7 @@ if(request.query.ind===undefined){
   var jsonparsed = JSON.parse(data1);
 
   response.set('Content-Type', 'application/json');
-  response.send("{"+jsonparsed['medidas'][request.query.ind]+"}"); 
+  response.send("{"+JSON.stringify(jsonparsed['medidas'][request.query.ind])+"}"); 
  
 
   //response.attachment('informacion.json');
