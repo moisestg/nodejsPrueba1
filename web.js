@@ -89,7 +89,7 @@ var mi_funcion= function(request, response){
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
 
-if(request.query.i===undefined){
+if(request.query.ind===undefined){
 	response.set('Content-Type', 'application/json');
   	response.send(data1);
 }else{
@@ -97,7 +97,7 @@ if(request.query.i===undefined){
   var jsonparsed = JSON.parse(data1);
 
   response.set('Content-Type', 'application/json');
-  response.send(jsonparsed['medidas'][request.query.i]); 
+  response.send(jsonparsed['medidas'][request.query.ind]+jsonparsed['medidas'][request.query.ind+1]); 
  
 
   //response.attachment('informacion.json');
