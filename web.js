@@ -130,7 +130,7 @@ if(request.query.filtro===undefined){
 		arrayFiltrados.push(Obj);		
 	}
 	  response.set('Content-Type', 'application/json');
-  	  response.send(jsonparsed['medidas'][0]['time']); 
+  	  response.send("\""+jsonparsed['medidas'][0]['time']+"\""); 
 }
 
 
