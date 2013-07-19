@@ -127,7 +127,7 @@ if(request.query.filtro===undefined){
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
 		var stringObj = "{\""+filtro+"\":"+jsonparsed['medidas'][i][filtro]+"}";
 		var Obj = JSON.parse(stringObj);		
-		array.push(Obj);
+		arrayFiltrados.push(Obj);
 	}
 	  response.set('Content-Type', 'application/json');
   	  response.send(arrayFiltrados); 
