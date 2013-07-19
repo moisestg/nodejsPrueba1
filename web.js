@@ -117,6 +117,22 @@ var mi_funcion= function(request, response){
   
   var data1 = fs.readFileSync('informacion.json', 'UTF-8');
 
+if(request.query.filtro===undefined){
+	response.set('Content-Type', 'application/json');
+  	response.send(data1);
+}else{
+	var jsonparsed = JSON.parse(data1);	
+	var arrayFiltrados = [];
+	for(var i=0;i<jsonparsed['medidas'].length;i++){
+		var stringObj = "{\""+request.query.filtro+"\":"+jsonparsed['medidas'][i].(request.query.filtro)+"}";
+		var Obj = JSON.parse(stringObj);		
+		array.push(Obj);
+	}
+	  response.set('Content-Type', 'application/json');
+  	  response.send(arrayFiltrados); 
+}
+
+
 if(request.query.desde===undefined || request.query.hasta===undefined){
 	response.set('Content-Type', 'application/json');
   	response.send(data1);
