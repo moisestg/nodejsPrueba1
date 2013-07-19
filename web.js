@@ -123,8 +123,9 @@ if(request.query.filtro===undefined){
 }else{
 	var jsonparsed = JSON.parse(data1);	
 	var arrayFiltrados = [];
+	var filtro = request.query.filtro;
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
-		var stringObj = "{\""+request.query.filtro+"\":"+jsonparsed['medidas'][i].request.query.filtro+"}";
+		var stringObj = "{\""+filtro+"\":"+jsonparsed['medidas'][i][filtro]+"}";
 		var Obj = JSON.parse(stringObj);		
 		array.push(Obj);
 	}
