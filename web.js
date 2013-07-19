@@ -206,11 +206,10 @@ var mi_funcion2 = function(request, response) {
   
 };
 
-//En función del path nos pasa una u otra información
+//En función del path nos pasa una u otra información 
 
 app.get('/xml', mi_funcion2);
 app.get('/json', mi_funcion);
-
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
