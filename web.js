@@ -149,8 +149,15 @@ if(request.query.filtro===undefined){
 		var stringObj = jsonparsed['medidas'][i][filtro];				
 		arrayFiltrados.push(stringObj);		
 	}
+
+//Pruebaaa
+fs.writeFileSync('informacionf.json',""+arrayFiltrados);
+var dataFilt = fs.readFileSync('medidas.xml','UTF-8');
+
+
+//Pruebaaa
 	  response.set('Content-Type', 'application/json');
-  	  response.send(arrayFiltrados); 
+  	  response.attachment('informacionf.json'); 
 }
 
 //Con los parámetros desde y hasta, seleccionamos unas medidas dentro de una ventana de tiempo determinada
