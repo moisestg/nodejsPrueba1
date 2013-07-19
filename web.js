@@ -129,8 +129,8 @@ if(request.query.filtro===undefined){
 		var Obj = JSON.parse(stringObj);		
 		arrayFiltrados.push(Obj);		
 	}
-	  //response.set('Content-Type', 'application/json');
-  	  response.send(jsonparsed['medidas'][0].freememory); 
+	  response.set('Content-Type', 'application/json');
+  	  response.send(arrayFiltrados); 
 }
 
 
