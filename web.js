@@ -125,9 +125,13 @@ if(request.query.filtro===undefined){
 	var arrayFiltrados = [];
 	var filtro = request.query.filtro;
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
-		var stringObj = "{\""+filtro+"\":"+jsonparsed['medidas'][i][filtro]+"}";
-		var Obj = JSON.parse(stringObj);		
-		arrayFiltrados.push(Obj);
+		if(filtro==="time"){
+			var stringObj = "{\""+filtro+"\":\""+jsonparsed['medidas'][i][filtro]+"\"}";
+		}else{
+			var stringObj = "{\""+filtro+"\":"+jsonparsed['medidas'][i][filtro]+"}";
+			var Obj = JSON.parse(stringObj);		
+			arrayFiltrados.push(Obj);
+		}
 	}
 	  response.set('Content-Type', 'application/json');
   	  response.send(arrayFiltrados); 
