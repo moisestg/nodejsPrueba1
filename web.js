@@ -61,7 +61,7 @@ antjson+="{\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["ni
 	}
 };
 
-antjson+="}}]}"
+antjson+="}"
 var json="";
 console.log("iniciando la aplicacion");
 
