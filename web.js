@@ -156,7 +156,7 @@ if(request.query.filtro===undefined || (request.query.filtro==="cputimes" && req
 //Intentamos detectar errores al hacer búsquedas incorrectas, aunque esto habría que depurarlo bastante más
 
   if(arrayFiltrados.length===0){
-	response.send("No se han encontrado coincidencias para tu búsqueda. Revisa los parámetros de búsqueda \"filtro\" y \"esp\".);
+	response.send("No se han encontrado coincidencias para tu búsqueda. Revisa los parámetros de búsqueda \"filtro\" y \"esp\".");
 }
 
 
