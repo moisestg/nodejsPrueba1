@@ -147,7 +147,7 @@ if(request.query.filtro===undefined || (request.query.filtro==="cputimes" && req
 	var filtro = request.query.filtro;
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
 		if(filtro==="cputimes"){
-			var stringObj = jsonparsed['medidas'][i][filtro][request.query.esp];
+			var stringObj = jsonparsed['medidas'][i][filtro][1][request.query.esp];
 		}else{
 			var stringObj = jsonparsed['medidas'][i][filtro];
 		}				
