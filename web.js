@@ -102,7 +102,7 @@ json+="{\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nic
 	}
 }
 
-var newjson=antjson.replace("}]}]}",json+"}]}");
+var newjson=antjson.replace("}]}]}",json+"]}");
 
 //XML
 
