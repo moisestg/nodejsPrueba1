@@ -51,7 +51,7 @@ var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><time>"
 
 //Primera medida JSON
 
-var antjson="{\"medidas\":[{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":[";
 
 for(var i=0;i<cpus.length;i++){
 	if(i===cpus.length-1){
@@ -61,7 +61,7 @@ antjson+="{\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["ni
 	}
 };
 
-antjson+="}}]}"
+antjson+="]}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
@@ -92,17 +92,17 @@ function json_xml_var(){
 //JSON
 
  int_network2=os.networkInterfaces();
-   json+=",{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem2+",\"uptime\":"+uptime2+",\"cputimes\":{";
+   json+=",{\"time\":\""+h+":"+m+":"+s+"\",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem2+",\"uptime\":"+uptime2+",\"cputimes\":[";
  
 for(var i=0;i<cpus2.length;i++){
 	if(i===cpus2.length-1){   
-json+="{\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice"]+",\"sys\":"+cpus2[i]["times"]["sys"]+",\"idle\":"+cpus2[i]["times"]["idle"]+",\"irq\":"+cpus2[i]["times"]["irq"]+"}}}";
+json+="{\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice"]+",\"sys\":"+cpus2[i]["times"]["sys"]+",\"idle\":"+cpus2[i]["times"]["idle"]+",\"irq\":"+cpus2[i]["times"]["irq"]+"}]}";
 	}else{   
 json+="{\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice"]+",\"sys\":"+cpus2[i]["times"]["sys"]+",\"idle\":"+cpus2[i]["times"]["idle"]+",\"irq\":"+cpus2[i]["times"]["irq"]+"},";
 	}
 }
 
-var newjson=antjson.replace("]}",json+"]}");
+var newjson=antjson.replace("}]}",json+"}]}");
 
 //XML
 
@@ -147,7 +147,7 @@ if(request.query.filtro===undefined || (request.query.filtro==="cputimes" && req
 	var filtro = request.query.filtro;
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
 		if(filtro==="cputimes"){
-			var stringObj = jsonparsed['medidas'][i][filtro][0][request.query.esp];
+			var stringObj = jsonparsed['medidas'][i][filtro][request.query.esp];
 		}else{
 			var stringObj = jsonparsed['medidas'][i][filtro];
 		}				
