@@ -138,7 +138,7 @@ var mi_funcion= function(request, response){
 
 //Con el parámetro filtro, nos muestra de todas las medidas, un dato en concreto
 
-if(request.query.filtro===undefined){
+if(request.query.filtro===undefined || (request.query.filtro==="cputimes" && request.query.esp===undefined )){
 	response.set('Content-Type', 'application/json');
   	response.send(data1);
 }else{
@@ -146,9 +146,18 @@ if(request.query.filtro===undefined){
 	var arrayFiltrados = [];
 	var filtro = request.query.filtro;
 	for(var i=0;i<jsonparsed['medidas'].length;i++){
-		var stringObj = jsonparsed['medidas'][i][filtro];				
+		if(filtro==="cputimes"){
+			var stringObj = jsonparsed['medidas'][i][filtro][request.query.esp];
+		}else{
+			var stringObj = jsonparsed['medidas'][i][filtro];
+		}				
 		arrayFiltrados.push(stringObj);		
 	}
+//Intentamos detectar errores al hacer búsquedas incorrectas, aunque esto habría que depurarlo bastante más
+
+  if(arrayFiltrados.length===0){
+	response.send("No se han encontrado coincidencias para tu búsqueda. Revisa los parámetros de búsqueda \"filtro\" y \"esp\".);
+}
 
 
 	  response.set('Content-Type', 'application/json');
