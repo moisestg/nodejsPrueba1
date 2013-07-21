@@ -61,8 +61,8 @@ antjson+="{\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["ni
 	}
 };
 
-antjson+="}"
-var json="";
+antjson+="}]}"
+var json="}]}";
 console.log("iniciando la aplicacion");
 
 //Definimos una función que se encargará de ir generando nuevas medidas cada cierto periodo de tiempo y añadirlas correctamente al archivo XML o JSON respectivamente
@@ -102,7 +102,7 @@ json+="{\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nic
 	}
 }
 
-var newjson=antjson.replace("}]}",json+"}]}");
+var newjson=antjson.replace("}]}]}",json+"}]}");
 
 //XML
 
