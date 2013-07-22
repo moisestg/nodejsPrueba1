@@ -67,7 +67,7 @@ console.log("iniciando la aplicacion");
 
 //Definimos una función que se encargará de ir generando nuevas medidas cada cierto periodo de tiempo y añadirlas correctamente al archivo XML o JSON respectivamente
 
-var int=setInterval(function(){json_xml_var()},3000);
+var int=setInterval(function(){json_xml_var()},20000);
 function json_xml_var(){
 var uptime2 = os.uptime();
 var totalmem2 = os.totalmem();
