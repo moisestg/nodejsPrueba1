@@ -138,7 +138,7 @@ var mi_funcion= function(request, response){
 
 //Con el parámetro filtro, nos muestra de todas las medidas, un dato en concreto
 
-if(request.query.filtro===undefined || (request.query.filtro==="cputimes" && request.query.esp===undefined )){
+if(request.query.filtro===undefined){
 response.set('Content-Type', 'application/json');
    response.send(data1);
 }else{
@@ -146,38 +146,35 @@ var jsonparsed = JSON.parse(data1);
 var arrayFiltrados = [];
 var filtro = request.query.filtro;
 for(var i=0;i<jsonparsed['medidas'].length;i++){
-
-var stringObj = jsonparsed['medidas'][i][filtro];
-	
+var stringObj = jsonparsed['medidas'][i][filtro];	
 arrayFiltrados.push(stringObj);	
 }
-
-
 response.set('Content-Type', 'application/json');
-response.send(arrayFiltrados);
+   response.send(arrayFiltrados);
 }
 
 //Con los parámetros desde y hasta, seleccionamos unas medidas dentro de una ventana de tiempo determinada
 
 if(request.query.desde===undefined || request.query.hasta===undefined){
 response.set('Content-Type', 'application/json');
-response.send(data1);
+   response.send(data1);
 }else{
 
-var jsonparsed = JSON.parse(data1);
-var arraySeleccionados = [];
-var desde = request.query.desde;
-var hasta = request.query.hasta;
+  var jsonparsed = JSON.parse(data1);
+  var arraySeleccionados = [];
+  var desde = request.query.desde;
+  var hasta = request.query.hasta;
 for(var i=0; i<jsonparsed['medidas'].length;i++){
 var tiempoString = jsonparsed['medidas'][i]['time'].substring(0,2)+jsonparsed['medidas'][i]['time'].substring(3,5)+jsonparsed['medidas'][i]['time'].substring(6,8);
+
 if(tiempoString>desde && tiempoString<hasta){
 arraySeleccionados.push(jsonparsed['medidas'][i]);
 }
-}
+}	
 
 //Intentamos detectar errores al hacer búsquedas incorrectas, aunque esto habría que depurarlo bastante más
 
-if(arraySeleccionados.length===0){
+  if(arraySeleccionados.length===0){
 response.send("No se han encontrado coincidencias para tu búsqueda. // Formato de hora: 08:10:05 --> 081005");
 }
 
