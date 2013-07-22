@@ -146,17 +146,10 @@ var jsonparsed = JSON.parse(data1);
 var arrayFiltrados = [];
 var filtro = request.query.filtro;
 for(var i=0;i<jsonparsed['medidas'].length;i++){
-if(filtro==="cputimes"){
-var stringObj = jsonparsed['medidas'][i][filtro][request.query.esp];
-}else{
-var stringObj = jsonparsed['medidas'][i][filtro];
-}	
-arrayFiltrados.push(stringObj);	
-}
-//Intentamos detectar errores al hacer búsquedas incorrectas, aunque esto habría que depurarlo bastante más
 
-  if(arrayFiltrados.length===0){
-response.send("No se han encontrado coincidencias para tu búsqueda. Revisa los parámetros de búsqueda \"filtro\" y \"esp\".);
+var stringObj = jsonparsed['medidas'][i][filtro];
+	
+arrayFiltrados.push(stringObj);	
 }
 
 
